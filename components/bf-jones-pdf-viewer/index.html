@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BF Jones PDF Viewer</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="smoke-pdfViewer"></div>
+    <script>
+        let placeholder = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.superiorwallpapers.com%2Fdownload%2Freinebringen-norway-stunning-landscape-1920x1080.jpg&f=1&nofb=1'
+        const pdfArray = [{"date":"1946","download":"pdf-doc-1946","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1946-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1946-output.pdf"},{"date":"1940","download":"pdf-doc-1940","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1940-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1940-output.pdf"},{"date":"1941","download":"pdf-doc-1941","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1941-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1941-output.pdf"},{"date":"1943","download":"pdf-doc-1943","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1943-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1943-output.pdf"},{"date":"1947","download":"pdf-doc-1947","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1947-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1947-output.pdf"},{"date":"1942","download":"pdf-doc-1942","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1942-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1942-output.pdf"},{"date":"1948","download":"pdf-doc-1948","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1948-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1948-output.pdf"},{"date":"1949","download":"pdf-doc-1949","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1949-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1949-output.pdf"},{"date":"1950","download":"pdf-doc-1950","image":"https://cdn.iliad.dev/public/production/bfjones/Images/yearbookThumbnails/1950-0001.jpg","view":"https://cdn.iliad.dev/public/production/bfjones/PDF/yearbooks/1950-output.pdf"}]
+        const addDynamicPdfs =()=> {
+            console.log('PDF Container Loaded!')
+            pdfArray.forEach((data, idx)=> {
+                let element = document.createElement("div")
+
+                element.classList.add('smoke-yearbook-container')
+
+                element.innerHTML = `<div class="smoke-yearbook-content"><img src="${data.image || placeholder}" alt="BF-Jones-Yearbook-${data.date || 'unknown'}" class="pdfPreviewImage"><div class="pdfPreviewButtons"><p>${data.date}</p><div class="yearbookCont"><a href="${data.view || 'https://lego.com/view'}" target="_blank">View</a><a download="ii-bf-download-${data.download}" href="${data.view || 'https://lego.com/download'}" target="_blank">Download</a></div></div></div>`
+
+                document.getElementById('smoke-pdfViewer').appendChild(element)
+            })
+        }
+        document.getElementById("smoke-pdfViewer").onload = addDynamicPdfs()
+    </script>
+</body>
+</html>
