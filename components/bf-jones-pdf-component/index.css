@@ -1,0 +1,63 @@
+/* Boilerplate */
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222222;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.containerFaux {
+  width: 250px;
+  height: 350px;
+}
+/* Component */
+#smoke-yearbook-container {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+  border-radius: 6px;
+  display: grid;
+  overflow: hidden;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  min-height: 200px;
+}
+#smoke-yearbook-container > img,
+#smoke-yearbook-container > div {
+  grid-area: 1/1;
+}
+#smoke-yearbook-container > img.pdfPreviewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#smoke-yearbook-container > div.pdfPreviewButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+#smoke-yearbook-container > div.pdfPreviewButtons > a {
+  display: none;
+  color: #f3f3f3;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#smoke-yearbook-container > div.pdfPreviewButtons > a:nth-child(1) {
+  margin-bottom: 20px;
+}
+/* Component Hover State */
+#smoke-yearbook-container:hover > div.pdfPreviewButtons {
+  opacity: 1;
+}
+
+#smoke-yearbook-container:hover > div.pdfPreviewButtons > a {
+  display: block;
+}
